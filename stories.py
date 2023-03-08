@@ -14,10 +14,8 @@ print_stories = True
 people_csv = './fake_data/fake_people.csv'
 output_csv = './results_simple_multipass_text-davinci-003.csv'
 
-BACKSTORY_START = "When asked about their experiences with racism, a person who is"
-BACKSTORY_END = " responded with: \""
-# BACKSTORY_START = """When asked about their experiences becoming less racist, a person who is"""
-# BACKSTORY_END = """ reponded with: \""""
+BACKSTORY_START = ""
+BACKSTORY_END = ""
 
 # ==============================================================================
 
@@ -46,7 +44,7 @@ def gen_backstory(pid, df):
 
     return id, backstory
 
-def do_query(prompt, max_tokens=512, engine="text-davinci-002"):
+def do_query(prompt, max_tokens=512, engine="text-davinci-003"):
     response = openai.Completion.create(
         engine=engine,
         prompt=prompt,
@@ -98,4 +96,4 @@ for pid in tqdm(range(len(df))):
 newdf = pd.DataFrame({'ids': ids, 'pids': prompt_ids, 'prompt': prompts, 'response': responses, 'ethnicity': ethnicities})
 newdf.to_csv(output_csv)
 
-print('simple_stories.py finished')
+print('stories.py finished')
