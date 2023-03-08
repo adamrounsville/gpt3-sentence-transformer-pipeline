@@ -24,12 +24,12 @@ df = pd.read_csv("./results_simple_multipass_text-davinci-003.csv")
 pdf = matplotlib.backends.backend_pdf.PdfPages(f"./result_viz/{OUTPUT_FILE_NAMES['graphs-pdf']}")
 
 # Calculate sentiment polarity
-def sentiment_polarity(text, includ_neutral=False):
+def sentiment_polarity(text, include_neutral=False):
     sentiment = TextBlob(text).sentiment.polarity
 
     if sentiment < 0:
         return "Negative"
-    elif sentiment == 0 and includ_neutral:
+    elif sentiment == 0 and include_neutral:
         return "Neutral"
     else:
         return "Positive"
