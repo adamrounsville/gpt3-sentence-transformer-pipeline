@@ -6,7 +6,10 @@ from keys import *
 
 openai.api_key = keys['openAI']
 
-def do_query( prompt, max_tokens=512, engine="davinci" ):
+NUM_RESPONSES = 1 # Number of responses/prompt
+PROMPT = ""
+
+def do_query( PROMPT, max_tokens=512, engine="davinci" ):
     response = openai.Completion.create(
         engine=engine,
         prompt=prompt,
@@ -19,13 +22,11 @@ def do_query( prompt, max_tokens=512, engine="davinci" ):
 
 # ==============================================================================
 
-prompt = ""
-
 responses = []
 
-for i in range(1): # Number of respones/prompt
+for i in range(NUM_RESPONSES): 
     try:
-        response = do_query( prompt, max_tokens=128, engine="text-davinci-003" )
+        response = do_query( PROMPT, max_tokens=128, engine="text-davinci-003" )
         resp_text = response.choices[0]['text']
         print(resp_text)
         responses.append(resp_text)
