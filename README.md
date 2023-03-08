@@ -5,7 +5,7 @@ A Python pipeline to generate responses for a dataset of 250 datapoints of type 
 ### Setup
 1) Add OpenAI key to `keys.py`
 2) Run `pip install matplotlib seaborn umap-learn sentence_transformers openai plotly textblob`
-3) Run `python3 gen.py`, changing the `prompt` variable if you want to change the dataset in `fake_data/fake_people.csv`
+3) Run `python3 gen.py`, changing the `PROMPT` global variable if you want to change the dataset in `fake_data/fake_people.csv`
 4) Change the `STORY_START` and `STORY_END` global variables in `stories.py` to account for what answers you want GPT3 to generate
 
 ### Pipeline
