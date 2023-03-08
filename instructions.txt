@@ -1,7 +1,0 @@
-1) Add OpenAI key to keys.py
-3) Run `pip install matplotlib seaborn umap-learn sentence_transformers openai plotly textblob`
-
-Pipeline:
-1) Run `simple_stories.py`
-2) Run `strans.py` (make sure this is run in the docker container)
-3) Run `vis.py` which generates the final plots and outputs them to the result_viz folder
